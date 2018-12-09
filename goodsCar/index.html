@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="indexCss.css">
+</head>
+<body>
+
+    <div id="app">
+        <template v-if='goods.length'>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>商品名称</th>
+                        <th>商品单价</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                        <th>选中</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item, index) in goods" :key="index">
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>
+                            <button :disabled="item.count === 1" @click="reduceGood(index)">
+                                -
+                            </button>
+                            {{ item.count }}
+                            <button @click="addGood(index)">
+                                +
+                            </button>
+                        </td>
+                        <td>
+                            <button @click="removeGood(index)">移除</button>
+                        </td>
+                        <td>
+                            <input type="checkbox" :value="item.id" v-model="checkArr">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <span>全选：</span><input type="checkbox" v-model="checked" @click="checkAll">
+            <h3>总价：￥{{ getTotalPrice }}元</h3>
+        </template>
+        <div v-else>
+            购物车为空
+        </div>
+    </div>
+
+<script src="lib/vue-2.4.0.js"></script>
+<script src=indexJS.js></script>
+</body>
+</html>

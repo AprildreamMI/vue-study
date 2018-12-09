@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue的基本代码</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>vue实现数据的双向绑定</h2>
+    <input type="text" v-model="inpData">
+    <p>{{ inpData }}</p>
+</div>
+
+
+<script src="lib/vue-2.4.0.js"></script>
+<script>
+
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            inpData: null
+        }
+    })
+
+</script>
+</body>
+</html>

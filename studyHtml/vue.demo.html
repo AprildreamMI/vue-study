@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>体验Vue</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(value, index) in books" :key=index>
+                {{ value }}
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="lib/vue-2.4.0.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                books:[
+                    '《JavaScript权威指南》',
+                    '《Git权威指南》',
+                    '《MySQL权威指南》'
+                ]
+            },
+            method: {
+                alert () {
+                    alert(1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

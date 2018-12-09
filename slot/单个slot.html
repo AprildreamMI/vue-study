@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单个slot</title>
+</head>
+<body>
+
+<div id="app">
+    <my-com>
+        <h2 slot="header">头部</h2>
+        <p>正文</p>
+        <h2 slot="footer">尾部</h2>
+    </my-com>
+</div>
+
+
+<script src="../studyHtml/lib/vue-2.4.0.js"></script>
+<script>
+
+    Vue.component('my-com',{
+        template:`<div>
+                    <p>哈哈哈</p>
+                    <slot name="header"></slot>
+                    <slot></slot>
+                    <slot name="footer"></slot>
+                  </div>`
+    })
+
+    var vue = new Vue({
+        el: '#app',
+        data: {
+
+        }
+    })
+
+</script>
+</body>
+</html>

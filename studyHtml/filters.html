@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue的基本代码</title>
+</head>
+<body>
+
+<div id="app">
+    <p>{{ date | formatDate}}</p>
+</div>
+
+
+<script src="lib/vue-2.4.0.js"></script>
+<script>
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            date: new Date(),
+            test: 111
+        },
+        // 页面在挂载之后
+        mounted () {
+            var _this = this
+            console.log(this)
+            this.timer = setInterval(function () {
+                _this.date = new Date()
+            },1000)
+        },
+        filters: {
+            // this 的指向不顶用 必须用vm
+            formatDate: function (value) {
+                var date = new Date(value)
+                var year = date.getFullYear();
+                var month = vm.padDate(date.getMonth() + 1)
+                var day = vm.padDate(date.getDate())
+                var hours = vm.padDate(date.getHours())
+                var minutes = vm.padDate(date.getMinutes())
+                var seconds = vm.padDate(date.getSeconds())
+
+                return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+            }
+        },
+        methods: {
+            padDate (value) {
+                return value < 10? '0' + value : value
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
