@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 
 // todoBase 基本样式文件
 import '../static/css/todoBase.css'
+import '../static/css/index.scss'
 
 Vue.config.productionTip = false
 
@@ -13,6 +15,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

@@ -16,20 +16,8 @@
     name: "index",
     data() {
       return {
-        tasks:[
-          {
-            title: '看权威指南',
-            bol: false
-          },
-          {
-            title: '学习vue实战',
-            bol: true
-          },
-          {
-            title: '学习外语',
-            bol: false
-          }
-        ]
+        // 解析存放在licalStorage中的数组 ， 如果没有，则解析一个空数据
+        tasks: JSON.parse(window.localStorage.getItem('tasks') || '[]')
       }
     },
     methods: {
@@ -53,6 +41,15 @@
       myHeader,
       list,
       myFooter,
+    },
+    watch:{
+      tasks: {
+        // 开启深度监视
+        deep: true,
+        handler(newValue) {
+          window.localStorage.setItem('tasks', JSON.stringify(newValue))
+        }
+      }
     }
   }
 </script>
