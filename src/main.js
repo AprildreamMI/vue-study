@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import './element-ui'
+
 
 // todoBase 基本样式文件
 import '../static/css/todoBase.css'

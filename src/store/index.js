@@ -7,7 +7,12 @@ import getters from './getters.js'
 Vue.use(Vuex)
 
 const state = {
-  count: 0
+  count: 0,
+	info: {
+		dier: {
+			myAge: ''
+		}
+	}
 }
 
 const opstion = {

@@ -75,8 +75,33 @@ export default new Router({
     },
     {
       path: '/vuex/mutations',
-      name: 'getters',
+      name: 'gettersmutions',
       component: () => import('../components/vuex-getter/setCount.vue')
+    },
+    {
+      path: '/element',
+      name: 'elmenet',
+      component: () => import('../components/elementDemo')
+    },
+    {
+      path: '/element/demoInput',
+      name: 'elmenet2',
+      component: () => import('../components/elementDemo/demoInput2.vue')
+    },
+    {
+      path: '/element/demo3',
+      name: 'demo3',
+      component: () => import('../components/elementDemo/demo3.vue')
+    },
+    {
+      path: '/element/demo4',
+      name: 'demo4',
+      component: () => import('../components/elementDemo/demo4.vue')
+    },
+    {
+      path: '/element/demo5',
+      name: 'demo5',
+      component: () => import('../components/elementDemo/demo5.vue')
     }
   ]
 })
