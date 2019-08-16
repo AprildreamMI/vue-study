@@ -5,7 +5,11 @@ import App from './App'
 import router from './router'
 import store from './store'
 import './element-ui'
+import VueWaypoint from 'vue-waypoint'
 
+// 监听滚动事件插件
+// Waypoint plugin
+Vue.use(VueWaypoint)
 
 // todoBase 基本样式文件
 import '../static/css/todoBase.css'

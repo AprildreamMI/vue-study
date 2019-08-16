@@ -102,6 +102,51 @@ export default new Router({
       path: '/element/demo5',
       name: 'demo5',
       component: () => import('../components/elementDemo/demo5.vue')
+    },
+		{
+      path: '/scrollLoding',
+      name: 'scrollLoding',
+      component: () => import('../components/scroll-loading')
+    },
+		{
+      path: '/click-away',
+      name: '/click-away',
+      component: () => import('../components/click-away')
+    },
+    {
+      path: '/vue-waypoint',
+      name: '/vue-waypoint',
+      component: () => import('../components/vue-waypoint')
+    },
+    {
+      path: '/vue-waypoint-test02',
+      name: '/vue-waypoint-test02',
+      component: () => import('../components/vue-waypoint/test02.vue')
+    },
+    {
+      path: '/bus',
+      name: '/bus',
+      component: () => import('../view/bus/index')
+    },
+    {
+      path: '/books',
+      name: '/books',
+      component: () => import('../view/scope-solt/index')
+    },
+    {
+      path: '/slots',
+      name: '/slots',
+      component: () => import('../view/slots/index.vue')
+    },
+    {
+      path: '/components',
+      name: '/components',
+      component: () => import('../view/componentIs/index.vue')
+    },
+    {
+      path: '/nextTick',
+      name: '/nextTick',
+      component: () => import('../view/newxtTick/index.vue')
     }
   ]
 })

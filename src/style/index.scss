@@ -1,0 +1,231 @@
+@import './reset.scss';
+@import './motion.scss';
+@import './space.scss';
+@import './flex.scss';
+@import './element-theme.scss';
+@import './reset-element.scss';
+
+body {
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  // background-image: url(/static/img/tech_blue.jpg);
+  // color: $text-color;
+}
+
+// 左浮动 右浮动
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+
+// 行内元素左右
+.text_align_left {
+  text-align: left;
+}
+.text_align_center {
+  text-align: center;
+}
+.text_align_right {
+  text-align: right;
+}
+
+// 手形
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// 清除浮动
+.clearfix {
+  &:after,
+  &:before {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// 字体及样式和大小
+.text {
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+  &-24-R {
+    font-size:24px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+  }
+  &-20-M {
+    font-size:20px;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+  }
+  &-16-M {
+    font-size:16px;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+  }
+  &-14-M {
+    font-size:14px;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+  }
+  &-16-R {
+    font-size:16px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+  }
+  &-14-R {
+    font-size:14px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+  }
+  &-12-R {
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+  }
+  &-12-M {
+    font-size:12px;
+    font-family:PingFangSC-Medium;
+    font-weight:400;
+  }
+}
+
+// 字体hover
+.text-hover-focus {
+  // 正常
+  color: $primary-color;
+  &:hover {
+    color: $font-color-hover
+  }
+}
+
+// 段落文字显示不完全就显示小点
+.text-overflow-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+
+// 按钮 确定 取消 如果需要其他尺寸的话 再加大小关键词
+.confirm-cancel-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+  .confirm, .cancel {
+    width: 80px
+  }
+  .confirm {
+    margin-right: 20px;
+  }
+  .cancel {
+  }
+}
+
+// 搜索框的样式 如需使用搜索框 请先复制搜索框的HTML代码 再加上 search-input 类名
+.search-input {
+  width: 220px;
+  // 输入框
+  .el-input__inner {
+    height: 30px;
+    line-height: 30px;
+  }
+  // 搜索框旁的图标
+  .search-icon-box {
+    display: flex;
+    align-items: center;
+    width: 23px;
+    height: 20px;
+    margin-top: 5px;
+    border-left: 1px solid;
+    padding-left: 5px;
+    cursor: pointer;
+    &.other-margin {
+      margin-top: 15px;
+    }
+    i {
+      font-size: 14px;
+      color: $font-color-black;
+    }
+    &:hover {
+      i {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+// 控制台下的标题类
+.card_title {
+  width: 100%;
+  height: 50px;
+  text-align: left;
+  line-height: 50px;
+  border-bottom: 1px solid $bg-color-gray;
+  &_padding_20 {
+    padding-left: 20px;
+  }
+}
+
+// 行样式
+.row {
+  width: 100%;
+}
+
+// 第一列按钮悬停 样式
+.button_col1_hover {
+  cursor: pointer;
+  &:hover {
+    background:rgba(235,247,255,1) !important;
+    color: rgba(0, 0, 0, 1) !important;
+  }
+}
+// 第四列按钮悬停 样式
+.button_col4_hover {
+  cursor: pointer;
+  &:hover {
+    background:rgba(235,247,255,1) !important;
+  }
+}
+
+// 内容块 头部 面包屑 通用样式
+.navigate {
+  .link_title {
+    color: #848896;
+    cursor: pointer;
+    &.active {
+      color: #000000;
+    }
+    &:hover {
+      color: #000000;
+    }
+  }
+}
+
+// 开支登记 到账登记 开支核减 三个按钮
+.detail_content_footer_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:80px;
+  height:30px;
+  background:rgba(255,255,255,1);
+  border:1px solid rgba(204,204,204,1);
+  margin-right: 20px;
+  &:hover {
+
+  }
+}

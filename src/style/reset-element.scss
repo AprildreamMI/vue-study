@@ -1,0 +1,482 @@
+/**
+* 修改一些element-ui组件样式
+*/
+
+// 按钮
+.el-button {
+  // 白色底色 hover 灰色的btn
+  &.el-button--info {
+    &:hover {
+      color: $font-color-black;
+      border-color: $menu-button-color-hover;
+      background-color: $menu-button-color-hover;
+    }
+    &:focus {
+      color: $font-color-black;
+      border-color: $menu-button-color-active;
+      background-color: $menu-button-color-active;
+    }
+  }
+  // &.el-button--default {
+  //   &:hover {
+  //     color: $font-color-black;
+  //     border-color: $bg-color-gray;
+  //     background-color: $menu-button-color-hover;
+  //   }
+  //   &:focus {
+  //     color: $font-color-black;
+  //     border-color: $menu-button-color-active;
+  //     background-color: $menu-button-color-active;
+  //   }
+  //   &.is-disabled:hover, &.is-disabled:focus {
+  //     color: #C0C4CC;
+  //     border-color: $bg-color-gray;
+  //     background-color: white;
+  //   }
+  // }
+}
+
+// 选项卡
+.el-tabs__item {
+  color: $font-color-placeholder;
+  @extend.text-16-M;
+  vertical-align: top;
+  line-height: 16px;
+  &.is-active, &:hover {
+    color: $font-color-black;
+  }
+}
+.el-tabs__active-bar {
+  height: 1px;
+  background-color: $font-color-black;
+}
+.el-tabs__nav-wrap::after {
+  height: 1px;
+}
+.empty_tabs {
+  .el-tabs__active-bar.is-top {
+    display: none;
+  }
+  .el-tabs__item:hover {
+  cursor: auto;
+  }
+}
+
+// 表单每一输入项的下边距
+.el-form-item {
+  margin-bottom: 30px;
+}
+
+// 自定义的dialog类名 需通过 custom-class="my-el-dialog" 传入 dialog
+.my-el-dialog {
+  .el-dialog__header {
+    display: none;
+  }
+  .el-dialog__body {
+    padding: 0 20px 0 20px;
+  }
+}
+.project_create_dialog {
+  padding: 0 20px;
+  height: 371px;
+  .el-dialog__header, .el-dialog__body, .el-dialog__footer{
+    padding: 0;
+  }
+  .title {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid $bg-color-gray;
+  }
+  .footer {
+    margin-top: 22px;
+  }
+}
+.el-popover {
+  border-radius: 0;
+}
+
+// my-el-table 公共样式 此类直接写在<el-table>中
+.my-el-table {
+  // 表格头
+  .el-table__header-wrapper {
+    .el-table__header {
+      .has-gutter {
+        // 背景颜色在变量文件中更改了
+        th {
+          background-color: $bg-color-gray;
+        }
+      }
+    }
+  }
+  // 表格体
+  .el-table__body-wrapper {
+    .el-table__body {
+      tbody {
+        // 内容过多会换行 只要单行并且保持高度60px, 则为列加上 show-overflow-tooltip 属性
+        // 表格行
+        .el-table__row {
+          cursor: pointer;
+          height: 60px;
+          // 行高亮
+          &.current-row {
+            td {
+              // 背景在变量中更改l
+              color: $font-color-focus;
+            }
+          }
+        }
+        // 展开行边距为0
+        .el-table__expanded-cell {
+          padding: 0px;
+        }
+      }
+    }
+  }
+}
+
+// 展开行 嵌套的表格
+.my-el-table-expand-table {
+  // 表格头
+  .el-table__header-wrapper {
+    .el-table__header {
+      .has-gutter {
+        // 背景颜色在变量文件中更改了
+        th {
+          background-color: $menu-button-color-active;
+        }
+      }
+    }
+  }
+  // 表格体
+  // .el-table__body-wrapper {
+  //   .el-table__body {
+  //     tbody {
+  //       // 内容过多会换行 只要单行并且保持高度60px, 则为列加上 show-overflow-tooltip 属性
+  //       // 表格行
+  //       .el-table__row {
+  //         cursor: pointer;
+  //         height: 60px;
+  //         // 行高亮
+  //         &.current-row {
+  //           td {
+  //             // 背景在变量中更改l
+  //             color: $font-color-focus;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+// table 不需要hover 加上此类
+.table-no-hover {
+  &.el-table--enable-row-hover .el-table__body tr:hover > td {
+    background-color: #ffffff;
+  }
+}
+
+// table 行里面带有输入框和选择器的 其 背景需和 hover 一致
+.table-have-input {
+  // 高亮
+  &.el-table--enable-row-hover .el-table__body tr:hover > td {
+    // 在row 中的输入框和选择器
+    .el-input__inner {
+      background-color: $menu-button-color-hover;
+    }
+  }
+  // row 的 hover 有过渡 0.25s
+  &.el-table--enable-row-hover .el-table__body tr > td {
+    .el-input__inner {
+      transition: background-color .25s ease;
+    }
+  }
+}
+
+// 自定义的只要下边框的输入框
+.my-el-input-only-bottom-border {
+  // 只有下边线的输入框
+  .el-input--medium .el-input__inner {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid $bg-color-gray;
+    &:focus {
+      border-color: $font-color-focus;
+    }
+  }
+  // 标题样式的输入框
+  &.title-input {
+    .el-input--medium .el-input__inner {
+      height: 40px;
+      padding-left: 20px;
+      line-height: 40px;
+    }
+  }
+}
+
+
+// 首先隐藏边框  选择器Hover时显示边框  点击时显示蓝色边框
+.my-el-input__inner-no-border {
+  .el-input__inner {
+    border: none;
+    border-color: #ccc;
+    border-radius: 0;
+    font-size: 12px;
+    &:hover {
+      border: 1px solid #ccc;
+    }
+    &:focus {
+      border: 1px solid #409EFF;
+    }
+  }
+}
+
+// 首先隐藏边框  选择器外部元素hover时显示选择器的边框
+.my-el-input__inner-no-border_hover_border {
+  .el-input__inner {
+    border: none;
+    border-color: #ccc;
+    border-radius: 0;
+    font-size: 12px;
+    &:focus {
+      border: 1px solid #409EFF;
+    }
+  }
+  &:hover {
+    .el-input__inner {
+      border: 1px solid #ccc;
+    }
+  }
+}
+
+// 首先藏边框  hover时带背景无边框 点击正常
+.my-el-input__inner-hover-no-border {
+  // 文本域也是此状态
+  .el-input__inner, .el-textarea__inner {
+    border: none;
+    border-color: #ccc;
+    border-radius: 0;
+    font-size: 12px;
+    cursor: pointer;
+    &:hover {
+      background-color: $menu-button-color-hover;
+    }
+    &:focus {
+      border: 1px solid #409EFF;
+      background-color: #ffffff;
+      cursor: text;
+    }
+  }
+}
+
+
+.my-el-disabled {
+  // 在禁用状态下
+  .is-disabled {
+    .el-input__inner, .el-textarea__inner {
+      // 字体颜色正常
+      background-color: #ffffff;
+      color: $font-color-black;
+      // border: 0;
+      &:hover {
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+
+// 在行内中 点击选择器 选择器背景为白色
+.my-el-select-input__inner-is-focus {
+  .el-input--suffix {
+    // 点击时 改变背景颜色
+    &.is-focus {
+      // 输入框颜色蓝色
+      .el-input__inner {
+        border: 1px solid #409EFF;
+        background-color: #ffffff !important;
+      }
+    }
+  }
+}
+
+// 隐藏首部图标
+.my-el-hidden-icon-input__prefix {
+  // 首部图标
+  .el-input__prefix {
+    display: none;
+  }
+}
+
+// 隐藏尾部图标
+.my-el-hidden-icon-input__suffix {
+  // 首部图标
+  .el-input__suffix {
+    display: none;
+  }
+}
+
+// 直角输入框
+.my-el-input__inner-no-radius {
+  .el-input__inner, .el-textarea__inner {
+    border-radius: 0;
+  }
+}
+
+// 输入框后的尾部
+.my-el-input__inner-group__append {
+  .el-input-group__append {
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    border-radius: 0;
+    padding: 0 0px;
+  }
+  // 蓝色背景 白色字
+  &.append_bg_bule_color_white {
+    .el-input-group__append {
+      background-color: $primary-color;
+      color: $bg-color-white;
+      border: 1px solid $primary-color;
+    }
+  }
+}
+
+// 弹框
+.my-el-messagebox {
+  padding: 0 20px;
+  // 头部
+  .el-message-box__header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid $bg-color-gray;
+    padding: 0 20px;
+    .el-message-box__title {
+      font-size:16px;
+      font-family:PingFangSC-Medium;
+      font-weight:500;
+      color:#292929;
+    }
+  }
+  // 内容
+  .el-message-box__content {
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    padding-top: 40px;
+    .el-message-box__status {
+      font-size: 16px !important;
+      top: 53px;
+      color: $warning-color;
+    }
+  }
+  // 按钮
+  .el-message-box__btns {
+    padding: 0 0;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    button {
+      width: 80px;
+      height: 30px;
+    }
+    button:nth-child(2) {
+      margin-left: 20px;
+    }
+  }
+}
+
+.el-pagination.is-background .btn-prev, .el-pagination.is-background .btn-next, .el-pagination.is-background .el-pager li {
+  border-radius: 0;
+  background-color: #fff;
+}
+
+// button 的宽是根据里面的内容变化的，四个字的刚好80px
+.my-el-button-width {
+  &_80 {
+    .el-button {
+      width: 80px;
+    }
+  }
+}
+
+.my-el-is-dot {
+  .el-badge__content.is-dot {
+    height: 10px;
+    width: 10px;
+  }
+  &.poject_member {
+    .el-badge__content.is-dot {
+      right: 20px;
+      top: 8px;
+    }
+  }
+}
+
+// 废弃的 my-el-table
+/* .my-el-table {
+  // 表格整体
+  .el-table {
+    overflow: unset;
+    background-color: #F5F7FA;
+    //
+    th, tr {
+      background-color: $bg-main-color;
+    }
+    // 去掉整个表格的下边线
+    &::before {
+      z-index: -12121;
+    }
+  }
+  // 表格Body
+  .el-table__body-wrapper {
+    // 如果不想要超出范围滚动条
+    overflow: unset;
+  }
+  // 表格头
+  .has-gutter {
+    // 高
+    height: 60px;
+    tr {
+      height: 60px;
+      // 控制表头的下边框颜色
+      th {
+        border-bottom: 1px solid #CCCCCC;
+      }
+    }
+    // 表格头的字体样式
+    .cell {
+      font-size:14px;
+      font-family:SimHei;
+      font-weight:400;
+      color:rgba(41,41,41,1);
+    }
+  }
+  // 表格Body 下的主体body
+  .el-table__body {
+    font-size: 12px;
+    font-family: SimHei;
+    font-weight: 400;
+    color: rgba(41,41,41,1);
+    // 每一行
+    .el-table__row {
+      margin: 16px 0;
+      height: 40px;
+      td {
+        border-bottom: none;
+      }
+    }
+    .today {
+      tr:last-child {
+      }
+    }
+  }
+  // 线条边框
+  .el-table--border::after, .el-table--group::after, .el-table::before {
+    background-color: white
+  }
+  // 每行 鼠标放上去 hover 颜色
+  .el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #FFFFFF
+  }
+} */
